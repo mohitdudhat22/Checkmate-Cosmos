@@ -3,11 +3,12 @@ import { Chess } from 'chess.js'
 interface ChessNode {
     name: string;
     pathProps: object;
-    textProps: { x: number, y: number };
-    currentGame: string | undefined;
+    textProps: React.SVGProps<SVGTextElement>;
+    currentGame?: string;
     nextMoves: string[];
     children: ChessNode[];
 }
+
 const chess = new Chess(); 
 export const generateChildren = (currentGame: string): ChessNode[] => {
     const newChess = new Chess(currentGame);
